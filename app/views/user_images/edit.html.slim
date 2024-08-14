@@ -1,0 +1,10 @@
+h1 Editing user image
+
+== render "form", user_image: @user_image
+
+br
+
+div
+  => link_to "Show this user image", @user_image
+  '|
+  =< link_to "Back to user images", user_images_path

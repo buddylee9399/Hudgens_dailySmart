@@ -1,0 +1,11 @@
+p style="color: green" = notice
+
+h1 Topic followings
+
+#topic_followings
+  - @topic_followings.each do |topic_following|
+    == render topic_following
+    p
+      = link_to "Show this topic following", topic_following
+
+= link_to "New topic following", new_topic_following_path

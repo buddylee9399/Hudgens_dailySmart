@@ -43,10 +43,10 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.2"
 
 group :development, :test do
   gem "bullet"
@@ -84,6 +84,41 @@ end
 
   gem "devise"
 
-  gem "rolify"
+  # gem "rolify"
 
   gem "pundit"
+
+gem 'friendly_id'
+gem 'devise_invitable'
+gem 'slim-rails'
+gem  'html2slim'
+gem 'redcarpet'
+gem 'coderay'
+gem 'cocoon'
+gem 'gritter'
+gem "font-awesome-rails"
+gem 'kaminari'
+gem 'inline_svg'
+gem 'render_async'
+gem "validate_url"
+gem 'acts_as_votable'
+gem 'sanitize'
+
+# gem 'impressionist'
+
+# gem 'compass-rails', '~> 3.0', '>= 3.0.2'
+# gem 'hirb'
+# gem 'ckeditor', github: 'galetahub/ckeditor'
+# gem 'rack-mini-profiler', require: false
+# gem 'memory_profiler'
+# gem 'honeybadger', '~> 3.1'
+# gem 'link_thumbnailer'
+# gem "paranoia", "~> 2.2"
+# gem 'active_model_serializers', '~> 0.10.7'
+# gem 'faraday', '~> 1.0'
+
+# gem 'sidekiq'
+# gem 'rack-cors', :require => 'rack/cors'
+# gem "sprockets", ">= 3.7.2"
+# gem 'pg_search'
+# gem "nokogiri", ">= 1.8.5"

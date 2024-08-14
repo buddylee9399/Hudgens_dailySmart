@@ -1,0 +1,11 @@
+p style="color: green" = notice
+
+h1 User images
+
+#user_images
+  - @user_images.each do |user_image|
+    == render user_image
+    p
+      = link_to "Show this user image", user_image
+
+= link_to "New user image", new_user_image_path

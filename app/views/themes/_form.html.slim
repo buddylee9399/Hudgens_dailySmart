@@ -1,0 +1,22 @@
+= form_with(model: theme) do |form|
+  - if theme.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(theme.errors.count, "error")} prohibited this theme from being saved:"
+      ul
+        - theme.errors.each do |error|
+          li = error.full_message
+
+  div
+    = form.label :topic_id, style: "display: block"
+    = form.text_field :topic_id
+
+  div
+    = form.label :post_id, style: "display: block"
+    = form.text_field :post_id
+
+  div
+    = form.label :deleted_at, style: "display: block"
+    = form.datetime_field :deleted_at
+
+  div
+    = form.submit

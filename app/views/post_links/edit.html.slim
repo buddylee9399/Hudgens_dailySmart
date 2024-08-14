@@ -1,0 +1,10 @@
+h1 Editing post link
+
+== render "form", post_link: @post_link
+
+br
+
+div
+  => link_to "Show this post link", @post_link
+  '|
+  =< link_to "Back to post links", post_links_path

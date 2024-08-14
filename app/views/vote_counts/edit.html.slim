@@ -1,0 +1,10 @@
+h1 Editing vote count
+
+== render "form", vote_count: @vote_count
+
+br
+
+div
+  => link_to "Show this vote count", @vote_count
+  '|
+  =< link_to "Back to vote counts", vote_counts_path

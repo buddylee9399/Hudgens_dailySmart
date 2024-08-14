@@ -1,0 +1,10 @@
+h1 Editing post social share
+
+== render "form", post_social_share: @post_social_share
+
+br
+
+div
+  => link_to "Show this post social share", @post_social_share
+  '|
+  =< link_to "Back to post social shares", post_social_shares_path

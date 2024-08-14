@@ -1,0 +1,39 @@
+nav.navbar.navbar-expand-lg.bg-body-tertiary
+  .container-fluid
+    = link_to "#{Rails.application.config_for(:settings).dig(:name)}", root_path, class: 'navbar-brand'
+  button.navbar-toggler[type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
+
+  span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.me-auto.mb-2.mb-lg-0
+      - menu_items.each do |item|
+        - if item[:active]
+          li.nav-item
+            = link_to item[:name], item[:path], class: 'nav-link active'
+        - else
+          li.nav-item
+            = link_to item[:name], item[:path], class: 'nav-link'
+  li.nav-item.dropdown
+
+  a.nav-link.dropdown-toggle[href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"]
+    |  Dropdown 
+  ul.dropdown-menu
+
+  li
+  a.dropdown-item[href="#"]
+    | Action
+  li
+  a.dropdown-item[href="#"]
+    | Another action
+  li
+  hr.dropdown-divider
+  li
+  a.dropdown-item[href="#"]
+    | Something else here
+  li.nav-item
+
+  a.nav-link.disabled
+    | Disabled
+  = render 'shared/search_form'
+  ul.navbar-nav
+    = render 'shared/users_nav'

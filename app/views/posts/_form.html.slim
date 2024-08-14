@@ -1,0 +1,44 @@
+.row
+  .col-md-12.post-form-wrapper
+    = form_for @post, class: 'form-horizontal' do |f|
+      - if @post.errors.any?
+        #error_explanation
+          h2 = "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
+          ul
+            - @post.errors.full_messages.each do |message|
+              li = message
+
+      .row
+        .col-md-6
+          .form-group
+            = f.label :title, class: 'form-label'
+            = f.text_field :title, class: 'form-control styled-text-field', autofocus: true
+        .col-md-6
+          .form-group
+            = f.label 'Image upload (optional)'
+            br
+            = f.file_field :img
+
+        .col-md-6
+          .form-group
+            = f.select :post_status, [['Draft', 'draft'], ['Published Publicly', 'published'], ['Private Post', 'private_post']], class: 'form-control'
+
+        .col-md-6
+          .form-group
+            = collection_select(:post, :topic_titles, Topic.all, :title, :title, {include_blank: false}, { :multiple => true, :name => 'post[topic_titles][]', class: 'form-control' })
+
+        .col-md-12
+          .form-group
+            / = cktext_area :post, :content, cols: 40
+            = f.label :content, class: 'form-label'
+            = f.text_area :content, class: 'form-control styled-text-field', autofocus: true            
+
+        .col-md-12
+          .form-group.add-link-wrapper
+            = f.fields_for :post_links do |post_link_form|
+              = render 'post_link_fields', :f => post_link_form
+            = link_to_add_association 'Add a Link', f, :post_links
+
+        .col-md-12
+          .actions
+            = f.submit 'Submit', class: 'btn btn-primary'

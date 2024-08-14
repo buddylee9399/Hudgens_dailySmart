@@ -1,0 +1,55 @@
+nav.navbar.navbar-toggleable-md.navbar-light.bg-faded
+  .container.nav-logo-wrapper
+    = link_to image_tag('nav_logo.png', height: '30px'), root_path, class: 'navbar-brand logo'
+
+    - if current_user
+      .nav-links
+        span.nav-link
+          = link_to "#{inline_svg('my-feed.svg', class: 'nav-icon')} <span class='nav-link-text'>My Feed</span>".html_safe, root_path
+        span.nav-link
+          = link_to "#{inline_svg('catagories.svg', class: 'nav-icon')} <span class='nav-link-text'>Topics</span>".html_safe, topics_path
+        span.nav-link
+          = link_to "#{inline_svg('users.svg', class: 'nav-icon')} <span class='nav-link-text'>Users</span>".html_safe, smarties_path
+        span.nav-link
+          = link_to "#{inline_svg('posts.svg', class: 'posts-icon nav-icon')} <span class='nav-link-text'>Posts</span>".html_safe, posts_path
+
+      = form_with url: search_query_path, method: :get, local: true do |f|
+        span.search-wrapper
+          <span id="search-icon-id" class="fa fa-search"></span>
+          = f.text_field :q, id: :q, class: 'form-control search-box', placeholder: 'What do you want to learn today?'
+
+      = link_to 'New Post', new_post_path, class: 'btn btn-primary'
+
+      .dropdown
+        a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-bs-toggle="dropdown" href="#" 
+          = inline_svg('settings-icon.svg', class: 'setting-gear-icon')
+        ul.dropdown-menu.dropdown-menu-right
+          = link_to "#{inline_svg('settings-icon.svg', class: 'dropdown-list-item-icon')} Account Settings".html_safe, edit_user_registration_path, class: 'dropdown-item'
+          = link_to "#{inline_svg('my-profile.svg', class: 'dropdown-profile-icon')} My Profile".html_safe, profile_path(current_user), class: 'dropdown-item'
+          .dropdown-divider
+          = button_to "#{inline_svg('logout.svg', class: 'dropdown-profile-icon logout-link')} Logout".html_safe, destroy_user_session_path, method: :delete, class: 'dropdown-item logout-link'
+
+      - if UserImage.where(user: current_user).any?
+        .nav-avatar
+          = link_to image_tag(UserImage.where(user: current_user).last.img.user_nav_thumb), profile_path(current_user)
+    - else
+      .nav-links
+        span.nav-link
+          = link_to "#{inline_svg('my-feed.svg', class: 'nav-icon')} <span class='nav-link-text'>Feed</span>".html_safe, new_user_registration_path
+        span.nav-link
+          = link_to "#{inline_svg('catagories.svg', class: 'nav-icon')} <span class='nav-link-text'>Topics</span>".html_safe, topics_path
+        span.nav-link
+          = link_to "#{inline_svg('users.svg', class: 'nav-icon')} <span class='nav-link-text'>Users</span>".html_safe, smarties_path
+        span.nav-link
+          = link_to "#{inline_svg('posts.svg', class: 'posts-icon nav-icon')} <span class='nav-link-text'>Posts</span>".html_safe, posts_path
+
+      = form_with url: search_query_path, method: :get, local: true do |f|
+        span.search-wrapper
+          <span id="search-icon-id" class="fa fa-search"></span>
+          = f.text_field :q, id: :q, class: 'form-control search-box', placeholder: 'What do you want to learn today?'
+
+      .nav-links
+        span.nav-link.nav-auth-link
+          = link_to "#{inline_svg('users.svg', class: 'nav-icon')} <span class='nav-link-text'>Login</span>".html_safe, new_user_session_path
+        span.nav-link.nav-auth-link
+          = link_to "#{inline_svg('users.svg', class: 'nav-icon')} <span class='nav-link-text'>Register</span>".html_safe, new_user_registration_path

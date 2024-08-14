@@ -1,0 +1,22 @@
+= form_with(model: vote) do |form|
+  - if vote.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(vote.errors.count, "error")} prohibited this vote from being saved:"
+      ul
+        - vote.errors.each do |error|
+          li = error.full_message
+
+  div
+    = form.label :choice, style: "display: block"
+    = form.number_field :choice
+
+  div
+    = form.label :post_id, style: "display: block"
+    = form.text_field :post_id
+
+  div
+    = form.label :user_id, style: "display: block"
+    = form.text_field :user_id
+
+  div
+    = form.submit

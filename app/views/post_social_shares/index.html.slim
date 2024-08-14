@@ -1,0 +1,11 @@
+p style="color: green" = notice
+
+h1 Post social shares
+
+#post_social_shares
+  - @post_social_shares.each do |post_social_share|
+    == render post_social_share
+    p
+      = link_to "Show this post social share", post_social_share
+
+= link_to "New post social share", new_post_social_share_path

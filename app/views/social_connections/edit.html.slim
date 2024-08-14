@@ -1,0 +1,10 @@
+h1 Editing social connection
+
+== render "form", social_connection: @social_connection
+
+br
+
+div
+  => link_to "Show this social connection", @social_connection
+  '|
+  =< link_to "Back to social connections", social_connections_path

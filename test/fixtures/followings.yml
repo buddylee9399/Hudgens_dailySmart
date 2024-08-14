@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: followings
+#
+#  id          :integer          not null, primary key
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  followed_id :integer
+#  follower_id :integer
+#
+
+one:
+  follower: 1
+  following: 1
+
+two:
+  follower: 1
+  following: 1

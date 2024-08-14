@@ -1,0 +1,10 @@
+p style="color: green" = notice
+
+== render @post_link
+
+div
+  => link_to "Edit this post link", edit_post_link_path(@post_link)
+  '|
+  =< link_to "Back to post links", post_links_path
+
+  = button_to "Destroy this post link", @post_link, method: :delete

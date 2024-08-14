@@ -1,0 +1,10 @@
+.topic-link
+  .row
+    .col-md-8
+      = link_to topic.title, topic
+    .col-md-2
+      .topic-post-count.pull-right
+        = "#{topic.posts.published.count} posts"
+    .col-md-2
+      .topic-follow-btn-wrapper
+        = topic_follow_buttons(topic_to_follow: topic, logged_in_user: current_user)

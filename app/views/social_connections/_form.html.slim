@@ -1,0 +1,22 @@
+= form_with(model: social_connection) do |form|
+  - if social_connection.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(social_connection.errors.count, "error")} prohibited this social_connection from being saved:"
+      ul
+        - social_connection.errors.each do |error|
+          li = error.full_message
+
+  div
+    = form.label :user_id, style: "display: block"
+    = form.text_field :user_id
+
+  div
+    = form.label :provider, style: "display: block"
+    = form.text_field :provider
+
+  div
+    = form.label :uid, style: "display: block"
+    = form.text_area :uid
+
+  div
+    = form.submit

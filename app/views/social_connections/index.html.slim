@@ -1,0 +1,11 @@
+p style="color: green" = notice
+
+h1 Social connections
+
+#social_connections
+  - @social_connections.each do |social_connection|
+    == render social_connection
+    p
+      = link_to "Show this social connection", social_connection
+
+= link_to "New social connection", new_social_connection_path

@@ -1,0 +1,11 @@
+p style="color: green" = notice
+
+h1 Vote counts
+
+#vote_counts
+  - @vote_counts.each do |vote_count|
+    == render vote_count
+    p
+      = link_to "Show this vote count", vote_count
+
+= link_to "New vote count", new_vote_count_path

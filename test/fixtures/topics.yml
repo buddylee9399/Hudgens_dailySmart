@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: topics
+#
+#  id           :integer          not null, primary key
+#  deleted_at   :datetime
+#  slug         :string
+#  themes_count :integer          default(0)
+#  title        :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+one:
+  title: MyString
+  slug: MyString
+  deleted_at: 2024-08-11 21:31:27
+  themes_count: 1
+
+two:
+  title: MyString
+  slug: MyString
+  deleted_at: 2024-08-11 21:31:27
+  themes_count: 1

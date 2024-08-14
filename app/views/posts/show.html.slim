@@ -1,0 +1,34 @@
+css:
+  body { background-color: #ffffff !important; }
+
+.full-width-div
+  .post-show-wrapper
+    .row
+      .col-md-12
+        .row.post-details-wrapper
+          .col-md-11
+            h1
+              = @post.title
+            .post-metadata
+              = "POST IMPORESSIONS COUNT views"
+              - if @post.topics.any?
+                - @post.topics.each do |topic|
+                  span.post-show-topic-item
+                    = link_to topic.title.upcase, topic_path(topic)
+            .post-metadata
+              = "submitted #{distance_of_time_in_words(@post.created_at, Time.now) } ago by #{link_to @post.user.username, profile_path(@post.user)}".html_safe
+              - if current_user && policy(@post).update?
+                = link_to ' <i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_post_path(@post)
+                = link_to " <i class='fa fa-trash-o' aria-hidden='true'></i>".html_safe, @post, method: :delete
+          .col-md-1
+            = render partial: 'posts/vote_links', locals: { post: @post }
+
+    - if !@post.img.blank?
+      = image_tag(@post.img, style: 'margin-bottom: 30px; max-width: 100%; border-radius: 5px;')
+
+    .row
+      .col-md-12.post-content
+        = auto_link(sanitize_with_whitelist(@post.content)).html_safe
+      .col-md-12.post-content
+        = render_async post_links_path
+

@@ -1,0 +1,18 @@
+= form_with(model: post_link) do |form|
+  - if post_link.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(post_link.errors.count, "error")} prohibited this post_link from being saved:"
+      ul
+        - post_link.errors.each do |error|
+          li = error.full_message
+
+  div
+    = form.label :link_url, style: "display: block"
+    = form.text_field :link_url
+
+  div
+    = form.label :post_id, style: "display: block"
+    = form.text_field :post_id
+
+  div
+    = form.submit

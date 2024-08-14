@@ -1,0 +1,18 @@
+= form_with(model: following) do |form|
+  - if following.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(following.errors.count, "error")} prohibited this following from being saved:"
+      ul
+        - following.errors.each do |error|
+          li = error.full_message
+
+  div
+    = form.label :follower, style: "display: block"
+    = form.number_field :follower
+
+  div
+    = form.label :following, style: "display: block"
+    = form.number_field :following
+
+  div
+    = form.submit

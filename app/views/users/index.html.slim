@@ -1,0 +1,16 @@
+.row
+  .col-md-12.page-heading-wrapper
+    h1
+      = 'Users'
+    .filter-link
+      = link_to "Filter", smarties_path(filter: @filter_link)
+
+.full-width-div.user-index-wrapper
+  .card
+    .col-md-12
+      / .spacer80
+      /   / = render partial: 'shared/google_leaderboard'
+
+      = render partial: 'users/user', collection: @users
+
+      = paginate @users

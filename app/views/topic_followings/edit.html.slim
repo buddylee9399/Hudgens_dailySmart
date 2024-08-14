@@ -1,0 +1,10 @@
+h1 Editing topic following
+
+== render "form", topic_following: @topic_following
+
+br
+
+div
+  => link_to "Show this topic following", @topic_following
+  '|
+  =< link_to "Back to topic followings", topic_followings_path

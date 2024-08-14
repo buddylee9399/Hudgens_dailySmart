@@ -1,0 +1,10 @@
+p style="color: green" = notice
+
+== render @post_social_share
+
+div
+  => link_to "Edit this post social share", edit_post_social_share_path(@post_social_share)
+  '|
+  =< link_to "Back to post social shares", post_social_shares_path
+
+  = button_to "Destroy this post social share", @post_social_share, method: :delete

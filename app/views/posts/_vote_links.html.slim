@@ -1,0 +1,23 @@
+.row.vote-link-wrapper
+  - if !current_user
+    .score-wrapper
+      .col-md-12
+        = "Score"
+      .col-md-12
+        / = post.vote_count.number_of_votes  
+        = pluralize(post.get_upvotes.size, "Like")
+  - else
+    .col-md-12
+      / = link_to "Upvote", upvote_path(post_slug: post.slug)
+      / = button_to upvote_post_path(post)
+      = button_to upvote_post_path(post), method: :get, class: "data" do
+        i.fa.fa-thumbs-o-up
+        = pluralize(post.get_upvotes.size, "Like")      
+    .col-md-12
+      .center-text
+        .vote-counter
+          = pluralize(post.get_upvotes.size, "Like")
+    .col-md-12
+      = button_to downvote_post_path(post), method: :get, class: "data" do
+        i.fa.fa-thumbs-o-down
+        = pluralize(post.get_downvotes.size, "Dislike")

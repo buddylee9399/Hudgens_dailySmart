@@ -1,0 +1,10 @@
+p style="color: green" = notice
+
+== render @topic_following
+
+div
+  => link_to "Edit this topic following", edit_topic_following_path(@topic_following)
+  '|
+  =< link_to "Back to topic followings", topic_followings_path
+
+  = button_to "Destroy this topic following", @topic_following, method: :delete

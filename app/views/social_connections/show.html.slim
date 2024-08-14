@@ -1,0 +1,10 @@
+p style="color: green" = notice
+
+== render @social_connection
+
+div
+  => link_to "Edit this social connection", edit_social_connection_path(@social_connection)
+  '|
+  =< link_to "Back to social connections", social_connections_path
+
+  = button_to "Destroy this social connection", @social_connection, method: :delete

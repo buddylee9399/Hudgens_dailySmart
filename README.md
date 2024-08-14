@@ -1,24 +1,18 @@
-# README
+# DailySmarty
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> This is the repo for the [DailySmarty.com](http://www.dailysmarty.com)
 
-Things you may want to cover:
+## TODOs
 
-* Ruby version
+* Make fully responsive
+* Replace bootstrap
+* Upgrade to Rails 6
+* Swap to action text instead of ckeditor
+* Swap to active storage instead of carrierwave
 
-* System dependencies
+## NEED TO DO
+- static_pages/index
+- ckeditor; get trix working
 
-* Configuration
+### THINGS I NEED TO FIX
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

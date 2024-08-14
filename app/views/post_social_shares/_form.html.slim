@@ -1,0 +1,18 @@
+= form_with(model: post_social_share) do |form|
+  - if post_social_share.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(post_social_share.errors.count, "error")} prohibited this post_social_share from being saved:"
+      ul
+        - post_social_share.errors.each do |error|
+          li = error.full_message
+
+  div
+    = form.label :post_id, style: "display: block"
+    = form.text_field :post_id
+
+  div
+    = form.label :provider, style: "display: block"
+    = form.text_field :provider
+
+  div
+    = form.submit
